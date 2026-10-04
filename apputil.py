@@ -23,11 +23,11 @@ def fibonacci(n):
 # Recursive case: divide n by 2 and append the remainder
 def to_binary(n):
     # Base case: if n is 0, return 0
-    if n == 0:
+    if n == 0 or n == 1:
         # Base case: if n is 0, return 0
-        return 0
+        return str(n)
     # Recursive case: divide n by 2 and append the remainder
-    return to_binary(n // 2) * 10 + n % 2
+    return to_binary(n // 2) + f"{n % 2}"
 
 
 # Task 1: Identify columns with missing values after replacing '?' with NaN in the gender column.
