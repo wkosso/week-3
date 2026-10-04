@@ -91,22 +91,22 @@ task_3()
 def task_4():
     # Task 4: Replace marital statuses in the 'profession' column with NaN and count the top 5 professions.
     df = df_bellevue.copy()
-    not_jobs = ['married', 'spinster', 'widow']
-    df['profession'] = df['profession'].replace(not_jobs, np.nan)
-    print(
-        "The profession column has marital statuses (married, spinster, "
-        "widow) in it, which are not professions. I turned them into NaN "
-        "so they are not counted. Rows with no profession are also "
-        "left out of the counts."
-    )
-    # Count the number of missing or unreadable professions
-    missing_profession = df['profession'].isna().sum()
-    if missing_profession > 0:
-        print(
-            f"{missing_profession} rows have a missing or unreadable profession, "
-            "so they are left out of the counts."
-        )
-    return df['profession'].value_counts().head(5).index.tolist()
+    # not_jobs = ['married', 'spinster', 'widow']
+    # df['profession'] = df['profession'].replace(not_jobs, np.nan)
+    # print(
+    #     "The profession column has marital statuses (married, spinster, "
+    #     "widow) in it, which are not professions. I turned them into NaN "
+    #     "so they are not counted. Rows with no profession are also "
+    #     "left out of the counts."
+    # )
+    # # Count the number of missing or unreadable professions
+    # missing_profession = df['profession'].isna().sum()
+    # if missing_profession > 0:
+    #     print(
+    #         f"{missing_profession} rows have a missing or unreadable profession, "
+    #         "so they are left out of the counts."
+    #     )
+    return df['profession'].value_counts(ascending=False).head(5).index.tolist()
 
 
 task_4()
