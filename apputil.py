@@ -34,7 +34,7 @@ def to_binary(n):
 def task_1():
 
     df = df_bellevue.copy()
-    df['gender'] = df['gender'].replace('?', np.nan)
+    df['gender'] = df['gender'].replace(['?', 'g', 'h'], np.nan)
     # Identify columns with missing values after replacing '?' with NaN in the gender column.
     print(
         "In the gender column, ? was used to mean missing values, "
@@ -43,7 +43,7 @@ def task_1():
         "The values g and h also look wrong, but I left them alone."
     )
     # Return the list of column names with missing values, sorted by the number of missing values.
-    return df.isna().sum().sort_values().index.tolist()
+    return df.isna().sum().sort_values(ascending=True).index.tolist()
 
 # Task  (call the function to get the result)
 task_1()
